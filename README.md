@@ -1,5 +1,5 @@
-**Creation of AI Agents using AGNO**
-
+Creation of AI Agents using AGNO
+-----------------------------------------
 AGNO:
   
   Agno is a lightweight library for building Agents with memory, knowledge, tools and reasoning.
@@ -26,7 +26,7 @@ AGNO:
     
     Monitoring: Monitor agent sessions and performance in real-time on agno.com.
 
-*Level 1: Basic (Completed)*
+**Level 1: Basic**
 
 Build a basic “Hello World” agent
 Develop a single agent (no tools) powered by an LLM
@@ -35,7 +35,7 @@ Sample interaction
 User: What are the principles of OOPS?
 AI: (whatever answer we get from LLM)
 
-*Level 2: Conversational Memory*
+**Level 2: Conversational Memory**
 
 Solve and learn conversation state through agents
 
@@ -43,15 +43,23 @@ User: My name is Sakhi, and I am an engineering student interested in compiler d
 AI: (some answer from LLM)
 User: What are some relevant textbooks that align with my interests?
 AI: (based on prior info.... )
+
+Approach:
+1. Built-In Memory: Every Agent has built-in memory that keeps track of the messages in the session, i.e., the chat history.
+
+    (Note: The default memory is not persisted across execution cycles. So after the script finishes running, or the request is over, the built-in default memory       is lost.)
+2. Session Storage: Storage helps us save Agent sessions and state to a database or file.
+Adding storage to an Agent is as simple as providing a storage driver, and Agno handles the rest. You can use SQLite, Postgres, Mongo, or any other database you want.
+3. User Memory: Agents can also create user memories based on the conversation history. To enable user memories, give your Agent a Memory object and set enable_agentic_memory=True.
  
-*Level 3: Tools*
+**Level 3: Tools**
 
 Integrate web search (e.g., Google Search) with agentic flow  (like Perplexity)
 
 User: What is the latest on US tariffs?
 AI: (performs the search and returns the results relevant to the search - but not as a list of search results but relevant answer to the question)
  
-*Level 4: Vector Store*
+**Level 4: Vector Store**
 
 Create a vector store (e.g., Compiler Design book) and push content into it
 Vectorize a resume and extract structured info
@@ -62,7 +70,7 @@ Enable OCR (traditional or GenAI) to read scans as well
 User: What is my AIR? What is my CGPA?
 AI: (based on the resume - the ans should be provided)
  
-*Level 5: Notebook LM mimic*
+**Level 5: Notebook LM mimic**
 
 Implement a multi-agent, multi-tool system (PDFs, YouTube urls, Web Page urls, copy & paste text)
 Create a Google NotebookLM like feature to generate a mind map from large data dumps within this program
