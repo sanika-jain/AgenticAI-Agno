@@ -1,4 +1,5 @@
 Tools in Agno:
+---
 Tools are functions that an Agent can call to interact with the external world.
 Tools make agents - “agentic” by enabling them to interact with external systems like searching the web, running SQL, sending an email or calling APIs.
 
@@ -7,9 +8,13 @@ Two Approachs :
 2. Using ToolKits
 
 A) Writing Your Own Tools
-    The rule is simple:
-        1. Any python function can be used as a tool by an Agent.
-        2. Use the @tool decorator to modify what happens before and after this tool is called.
+    
+The rule is simple:
+        
+1. Any python function can be used as a tool by an Agent.
+        
+2. Use the @tool decorator to modify what happens before and after this tool is called.
+   
 | *Parameter*            | *Type*           |*Description*                                                                 |
 | ---------------------- | ---------------- | ---------------------------------------------------------------------------- |
 | `name`                 | `str`            | Override for the function name                                               |
@@ -23,12 +28,13 @@ A) Writing Your Own Tools
 
 
 B) ToolKits
-    A Toolkit is a collection of functions that can be added to an Agent. The functions in a Toolkit are designed to work together, share internal state and provide a better development experience.
 
-    1) Search: Arvix, BaiduSearch, DuckDuckGo, Exa, Google Search, HackerNews, Pubmed, SearxNG, Serpapi, Travily, Wikipedia
-    2) Social: Discord, Email, Gmail, Slack, Telegram, Twilio, Webex, X, Zoom
-    3) Web Scraping: AgentQL, Browserbase, Crawl4AI, Jina Reader, Newspaper, Newspaper4k, Website, Firecrawl, Spider
-    4) Data: CSV, DuckDb, Pandas, Postgres, SQL, Zep
+A Toolkit is a collection of functions that can be added to an Agent. The functions in a Toolkit are designed to work together, share internal state and provide a better development experience.
+
+1) Search: Arvix, BaiduSearch, DuckDuckGo, Exa, Google Search, HackerNews, Pubmed, SearxNG, Serpapi, Travily, Wikipedia
+2) Social: Discord, Email, Gmail, Slack, Telegram, Twilio, Webex, X, Zoom
+3) Web Scraping: AgentQL, Browserbase, Crawl4AI, Jina Reader, Newspaper, Newspaper4k, Website, Firecrawl, Spider
+4) Data: CSV, DuckDb, Pandas, Postgres, SQL, Zep
 
     ToolKit Parameters for DuckDuckGo:
     | *Function*          | *Description*                                             |
