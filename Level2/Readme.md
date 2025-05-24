@@ -41,3 +41,20 @@ vi. Storage enables us to build internal monitoring tools and dashboards.
 **User-Memory:**
 
 User memories are stored in the Memory object and persisted in the SqliteMemoryDb to be used across multiple users and multiple sessions.
+
+Outputs:
+--
+1. Built-in.py:
+   
+   ![image](https://github.com/user-attachments/assets/4d0e8de5-207f-46bd-8f18-1660df049933)
+
+2. Built-in-cli.py:
+   
+   ![image](https://github.com/user-attachments/assets/79b74ba1-279c-4dc1-ae75-9e0002b50cf1)
+   ![image](https://github.com/user-attachments/assets/7e5c61a5-0f11-407f-8b3b-8ab463159594)
+
+3. Session-storage .py
+4. session-storage-cli.py:
+
+   
+   
