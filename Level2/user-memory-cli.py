@@ -1,11 +1,12 @@
 import os
+import time
 from dotenv import load_dotenv
 from agno.agent import Agent
 from agno.memory.v2.db.sqlite import SqliteMemoryDb
 from agno.memory.v2.memory import Memory
 from agno.storage.sqlite import SqliteStorage
 from agno.models.google.gemini import Gemini
-from agno.playground import Playground, serve_playground_app
+from rich.pretty import pprint
 
 # Load environment variables from .env file
 load_dotenv()
@@ -17,7 +18,7 @@ memory_db = SqliteMemoryDb(table_name="user-memory", db_file="tmp/user-memory.db
 memory = Memory(db=memory_db, model=Gemini())
 
 # Set up persistent storage for agent conversation memory
-storage = SqliteStorage(table_name="memory", db_file="tmp/memory.db")
+storage = SqliteStorage(table_name="memory", db_file="tmp/memory.db", auto_upgrade_schema=True)
 
 # Define a user ID for associating user-specific memory
 user_id = "default_user"
@@ -35,12 +36,18 @@ agent = Agent(
     stream=True,                          # Enable streaming responses
     num_history_runs=3,                   # Number of historical runs for context
     markdown=True,                        # Format output as Markdown
-    enable_session_summaries=True,        # Enable session summaries
+    stream_intermediate_steps=True,        # Stream intermediate reasoning steps
+    monitoring=True,                      # Enable monitoring for debugging
 )
 
-# Create a Playground app instance with the configured agent
-app = Playground(agents=[agent]).get_app()
+# Helper function to ask the agent a question and wait before the next prompt
+def safe_ask(prompt, delay=7):
+    agent.print_response(prompt)
+    time.sleep(delay)
 
-# Start the playground web app if this script is run directly
-if __name__ == "__main__":
-    serve_playground_app("user-memory:app")
+# Ask questions with throttling to avoid rate limits and allow memory updates
+safe_ask("Hello iam sanika")
+safe_ask("IAm interested in learning about AI and machine learning")
+safe_ask("Give me good career options based on my interests")
+safe_ask("Delete all data of mine")
+safe_ask("What is my name?")
