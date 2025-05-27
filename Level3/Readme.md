@@ -1,53 +1,63 @@
-Tools in Agno:
----
-Tools are functions that an Agent can call to interact with the external world.
-Tools make agents - “agentic” by enabling them to interact with external systems like searching the web, running SQL, sending an email or calling APIs.
+**web-teams:**
+--
+web-teams.py is an example of orchestrating multiple AI agents as a collaborative team to perform advanced web search and synthesis tasks using the agno framework.
 
-Two Approachs :
-1. Writing your own Tool
-2. Using ToolKits
+What does this file do?
 
-A) Writing Your Own Tools
-    
-The rule is simple:
-        
-1. Any python function can be used as a tool by an Agent.
-        
-2. Use the @tool decorator to modify what happens before and after this tool is called.
+1. Loads environment variables (including the Google API key) for secure configuration.
+
+2. Defines three specialized agents:
+
+    i. Query Reformulator Agent: Improves user queries for more effective searching.
    
-| *Parameter*            | *Type*           |*Description*                                                                 |
-| ---------------------- | ---------------- | ---------------------------------------------------------------------------- |
-| `name`                 | `str`            | Override for the function name                                               |
-| `description`          | `str`            | Override for the function description                                        |
-| `show_result`          | `bool`           | If `True`, shows the result after the function call                          |
-| `stop_after_tool_call` | `bool`           | If `True`, the agent will stop after the function call                       |
-| `tool_hooks`           | `list[Callable]` | List of hooks to run before and after the function is executed               |
-| `cache_results`        | `bool`           | If `True`, enable caching of function results                                |
-| `cache_dir`            | `str`            | Directory to store cache files                                               |
-| `cache_ttl`            | `int`            | Time-to-live for cached results in seconds (default: 3600 seconds or 1 hour) |
+    ii. Web Searcher Agent: Uses DuckDuckGo tools to search the web based on the reformulated query.
+   
+    iii. Answer Synthesis Agent: Synthesizes information from multiple articles into a coherent answer.
+   
+3. Coordinates these agents as a team using the Team class, so each agent performs its task in sequence, passing results to the next.
+4. Enables advanced features such as tool usage visibility, markdown formatting, debug mode, and sharing of context/history among agents.
+5. Provides a web-based playground app for interactive experimentation with the agent team.
+6. How to use:
 
+   Make sure you have a .env file with your GOOGLE_API_KEY.
 
-B) ToolKits
+   Run the script: *python web-teams.py*
+8. Open the provided web interface to interact with the multi-agent web search and synthesis workflow.
 
-A Toolkit is a collection of functions that can be added to an Agent. The functions in a Toolkit are designed to work together, share internal state and provide a better development experience.
+This file demonstrates how to build modular, collaborative AI workflows for complex information retrieval and summarization tasks.
 
-1) Search: Arvix, BaiduSearch, DuckDuckGo, Exa, Google Search, HackerNews, Pubmed, SearxNG, Serpapi, Travily, Wikipedia
-2) Social: Discord, Email, Gmail, Slack, Telegram, Twilio, Webex, X, Zoom
-3) Web Scraping: AgentQL, Browserbase, Crawl4AI, Jina Reader, Newspaper, Newspaper4k, Website, Firecrawl, Spider
-4) Data: CSV, DuckDb, Pandas, Postgres, SQL, Zep
+OUTPUT:
+![image](https://github.com/user-attachments/assets/8c766f3e-cd50-4e10-9492-cb93df02732e)
 
-    ToolKit Parameters for DuckDuckGo:
-    | *Function*          | *Description*                                             |
-    | ------------------- | --------------------------------------------------------- |
-    | `duckduckgo_search` | Use this function to search DuckDuckGo for a query.       |
-    | `duckduckgo_news`   | Use this function to get the latest news from DuckDuckGo. |
+CLI:
+![image](https://github.com/user-attachments/assets/b74a8f84-25de-49f3-8f1f-29452edcbaa7)
+![image](https://github.com/user-attachments/assets/288367b6-7393-4af4-9db5-d8b6e41514a4)
 
-    | *Parameter*         | *Type*   | *Default*   | *Description*                                                                |
-    | ------------------- | -------- | ----------- | ---------------------------------------------------------------------------- |
-    | `search`            | `bool`   | `True`      | Enables the use of the `duckduckgo_search` function to search DuckDuckGo.    |
-    | `news`              | `bool`   | `True`      | Enables the use of the `duckduckgo_news` function to fetch latest news.      |
-    | `fixed_max_results` | `int`    | `-`         | Sets a fixed number of maximum results to return. Must be specified if used. |
-    | `headers`           | `Any`    | `-`         | Accepts any header values to be sent with HTTP requests.                     |
-    | `proxy`             | `str`    | `-`         | Specifies a single proxy address as a string for HTTP requests.              |
-    | `proxies`           | `Any`    | `-`         | Accepts a dictionary of proxies for HTTP requests.                           |
-    | `timeout`           | `int`    | `10`        | Sets the timeout for HTTP requests, in seconds.                              |
+**websearch:**
+--
+websearch.py is a sample script demonstrating how to build an AI-powered web search agent using the agno framework.
+
+What does this file do?
+1. Loads environment variables (including your Google API key) for secure configuration.
+2. Creates a single AI agent (WebSearchAgent) that:
+   
+    i. Uses the Gemini language model for understanding and generating responses.
+   
+    ii. Integrates DuckDuckGo search tools to fetch real-time web results.
+   
+    iii. Streams responses and intermediate reasoning steps for transparency.
+   
+    iv. Supports markdown formatting and monitoring for debugging.
+   
+3. Launches an interactive web playground where you can chat with the agent and see how it performs live web searches and reasoning.
+4. How to use
+
+    Add your GOOGLE_API_KEY to a .env file in the project directory.
+
+    Run the script: *python websearch.py*
+5. Open the provided web interface to interact with the web search agent.
+
+This file is a practical example of combining LLMs with web search tools for real-time, interactive information retrieval.
+
+OUTPUT:
+![image](https://github.com/user-attachments/assets/29b94b21-5a13-4ba5-a077-78f21d78f175)
