@@ -26,6 +26,9 @@ AGNO:
     
     Monitoring: Monitor agent sessions and performance in real-time on agno.com.
 
+![image](https://github.com/user-attachments/assets/974898e8-fb0c-42b1-860a-f35777f1386a)
+
+
 **Level 1: Basic**
 
 Build a basic “Hello World” agent
@@ -44,14 +47,6 @@ AI: (some answer from LLM)
 User: What are some relevant textbooks that align with my interests?
 AI: (based on prior info.... )
 
-Approach:
-1. Built-In Memory: Every Agent has built-in memory that keeps track of the messages in the session, i.e., the chat history.
-
-    (Note: The default memory is not persisted across execution cycles. So after the script finishes running, or the request is over, the built-in default memory       is lost.)
-2. Session Storage: Storage helps us save Agent sessions and state to a database or file.
-Adding storage to an Agent is as simple as providing a storage driver, and Agno handles the rest. You can use SQLite, Postgres, Mongo, or any other database you want.
-3. User Memory: Agents can also create user memories based on the conversation history. To enable user memories, give your Agent a Memory object and set enable_agentic_memory=True.
- 
 **Level 3: Tools**
 
 Integrate web search (e.g., Google Search) with agentic flow  (like Perplexity)
