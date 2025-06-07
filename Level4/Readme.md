@@ -1,10 +1,12 @@
+Document Q&A WorkFlow
+--
 l4-w.py is an advanced example script that demonstrates how to build an end-to-end document question answering (Q&A) workflow using the Agno framework, the Gemini language model, and ChromaDB for vector storage.
 
 What does this file do?
 
 1. Loads environment variables and API keys from a .env file for secure configuration.
 2. Downloads and chunks a PDF from a specified URL.
-3. Embeds the PDF content using Gemini embeddings and stores them in a Chroma vector database for semantic search.
+3. Embeds the PDF content using Gemini embeddings and stores it in a Chroma vector database for semantic search.
 4. Defines a workflow class that:
 
     i. Accepts user questions.
@@ -47,3 +49,10 @@ Dependencies:
 - sqlite3
 
 This script is ideal for building interactive, document-aware AI assistants that can answer questions based on the content of uploaded or linked PDFs.
+
+OUTPUT:
+--
+Link for the PDF used here: https://www.adobe.com/support/products/enterprise/knowledgecenter/media/c4611_sample_explain.pdf
+
+![image](https://github.com/user-attachments/assets/f2e8fb04-2517-42cc-8755-76932f6ebe2f)
+
