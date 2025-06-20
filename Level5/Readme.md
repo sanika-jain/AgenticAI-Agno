@@ -205,3 +205,5 @@ PDF : (https://www.adobe.com/support/products/enterprise/knowledgecenter/media/c
 Plain Text:
 ![image](https://github.com/user-attachments/assets/261c7629-8b04-4c48-9aab-af4754c20243)
 
+MindMap Example :
+![mindmap_output](https://github.com/user-attachments/assets/773d0649-2bef-453e-9951-bfec07a91ac0)
