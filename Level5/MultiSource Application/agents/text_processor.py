@@ -11,7 +11,7 @@ def create_text_agent():
         model=Gemini(),
         instructions=[
             dedent("""
-            Process plain text input. Summarize or answer questions (max 1500 characters).
+            Process plain text input. Answer the questions (max 1500 characters).
             If podcast request, return: 'Podcast request should be handled by Podcast Conversation Team.' and route to podcast_agent.
             If mindmap request, return: 'Mindmap request should be handled by Mindmap Agent.' and route to mindmap_agent.
             """)
