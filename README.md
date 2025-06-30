@@ -63,5 +63,9 @@ AI: (based on the resume - the ans should be provided)
 
 Implement a multi-agent, multi-tool system (PDFs, YouTube urls, Web Page urls, copy & paste text)
 Create a [Google NotebookLM](https://notebooklm.google.com/) like feature to generate a mind map from large data dumps within this program
-Create a NotebookLM style audio podcast (User: create podcast on challenges of compiler design?)
+create a NotebookLM style audio podcast 
+
+🎥 **Demo**
+
+Check out a demo video of the project [here](https://drive.google.com/file/d/18Wg2raXwxN59V_wJUibrPRMmE3xWuyvK/view?usp=sharing).
 
