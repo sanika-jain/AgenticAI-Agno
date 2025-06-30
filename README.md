@@ -24,7 +24,7 @@ AGNO:
 Build a basic “Hello World” agent
 Develop a single agent (no tools) powered by an LLM
 
-Sample interaction
+Sample interaction:
 
 ```
 User: What are the principles of OOPS?
@@ -34,6 +34,8 @@ AI: (whatever answer we get from LLM)
 **Level 2: Conversational Memory**
 
 Solve and learn conversation state through agents
+
+Sample interaction:
 ```
 User: My name is Sakhi, and I am an engineering student interested in compiler design and ML. What are some good career options?
 AI: (some answer from LLM)
@@ -44,6 +46,8 @@ AI: (based on prior info.... )
 **Level 3: Tools**
 
 Integrate web search (e.g., Google Search) with agentic flow  (like Perplexity)
+
+Sample interaction:
 ```
 User: What is the latest on US tariffs?
 AI: (performs the search and returns the results relevant to the search - but not as a list of search results but relevant answer to the question)
@@ -55,6 +59,8 @@ Vectorize a resume and extract structured info
 Design sequential or parallel agent workflows
 Enable agent-to-tool calling
 Enable OCR (traditional or GenAI) to read scans as well
+
+Sample interaction:
 ```
 User: What is my AIR? What is my CGPA?
 AI: (based on the resume - the ans should be provided)
